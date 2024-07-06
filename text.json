@@ -1,1 +1,210 @@
+{
+  "001": {
+    "date": "6/22/24",
+    "country": "United States",
+    "city": "New York City",
+    "area": ""
+  },
+  "008": {
+    "area": "Times Square"
+  },
+  "014": {
+    "date": "6/23/24",
+    "area": "Central Park"
+  },
+  "019": {
+    "area": "Broadway"
+  },
+  "020": {
+    "area": ""
+  },
+  "021": {
+    "area": "Bryant Park"
+  },
+  "022": {
+    "area": "The Empire State Building"
+  },
+  "023": {
+    "area": "Koreatown"
+  },
+  "024": {
+    "date": "6/24/24",
+    "area": "World Trade Center"
+  },
+  "026": {
+    "area": "One World Observatory"
+  },
+  "035": {
+    "area": "World Trade Center"
+  },
+  "037": {
+    "area": ""
+  },
+  "038": {
+    "area": "The Battery"
+  },
+  "039": {
+    "area": "Liberty Island"
+  },
+  "052": {
+    "area": ""
+  },
+  "058": {
+    "date": "6/25/24",
+    "area": "Rockefeller Center"
+  },
+  "059": {
+    "area": "Columbus Circle"
+  },
+  "060": {
+    "area": "The High Line"
+  },
+  "061": {
+    "area": "Hudson Yards"
+  },
+  "062": {
+    "area": "Chelsea Market"
+  },
+  "065": {
+    "area": "JFK Airport"
+  },
 
+  "068": {
+    "date": "6/26/24",
+    "country": "England",
+    "city": "London",
+    "area": ""
+  },
+  "074": {
+    "area": "The Roxy"
+  },
+  "076": {
+    "date": "6/27/24",
+    "area": ""
+  },
+  "081": {
+    "date": "6/28/24"
+  },
+  "083": {
+    "area": "Chinatown London"
+  },
+  "085": {
+    "area": "West End"
+  },
+  "086": {
+    "date": "6/29/24",
+    "area": "Ballie Ballroom"
+  },
+  "087": {
+    "area": "The British Museum"
+  },
+  "092": {
+    "area": ""
+  },
+  "093": {
+    "area": "Parliament Square Garden"
+  },
+  "094": {
+    "area": "Big Ben"
+  },
+  "095": {
+    "area": "Westminster Abbey"
+  },
+  "096": {
+    "area": "Parliament Square Garden"
+  },
+  "098": {
+    "area": ""
+  },
+  "099": {
+    "area": "London Bridge/Tower Bridge"
+  },
+  "102": {
+    "area": "London Eye"
+  },
+
+  "108": {
+    "date": "6/30/24",
+    "country": "Switzerland",
+    "city": "Geneva",
+    "area": "Geneva Airport"
+  },
+  "109": {
+    "city": "",
+    "area": ""
+  },
+  "112": {
+    "country": "France"
+  },
+  "113": {
+    "city": "Aix-les-Bains"
+  },
+  "118": {
+    "date": "7/1/24",
+    "city": "Chamonix",
+    "area": "French Alps"
+  },
+  "147": {
+    "city": "Aix-les-Bains",
+    "area": ""
+  },
+  "148": {
+    "date": "7/2/24",
+    "area": "Lac du Bourget"
+  },
+  "154": {
+    "city": "Aix-les-Bains",
+    "area": ""
+  },
+  "158": {
+    "date": "7/3/24"
+  },
+  "159": {
+    "city": "Annecy"
+  },
+  "162": {
+    "area": "Château d'Annecy"
+  },
+  "165": {
+    "area": ""
+  },
+  "166": {
+    "area": "Église Saint-François"
+  },
+  "168": {
+    "area": "Luc d'Annecy"
+  },
+  "173": {
+    "area": ""
+  },
+  "174": {
+    "area": "Église Notre-Dame de Liesse"
+  },
+  "176": {
+    "area": ""
+  },
+  "179": {
+    "date": "7/4/24",
+    "city": "Aix-les-Bains"
+  },
+  "180": {
+    "area": "Lac du Bourget"
+  },
+  "192": {
+    "area": ""
+  },
+  "193": {
+    "date": "7/5/24",
+    "city": "Le Revard",
+    "area": ""
+  },
+  "201": {
+    "city": "Aix-les-Bains"
+  },
+  "202": {
+    "area": "Downtown"
+  },
+  "204": {
+    "area": "Downtown"
+  }
+}
