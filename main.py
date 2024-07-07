@@ -15,9 +15,7 @@ def main():
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
-
-	parser.add_argument("-w", "--target-width",  help="aspect ratio width",  required=False, default=9, type=float)
-	parser.add_argument("-h", "--target-height", help="aspect ratio height", required=False, default=19, type=float)
+	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:19")
 	
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
@@ -27,7 +25,8 @@ def main():
 	except FileExistsError:
 		pass
 
-	target_ratio = args.target_width / args.target_height
+	ratio_parts = args.ratio.split(":")
+	target_ratio = float(ratio_parts[0]) / float(ratio_parts[1])
 
 	# ------------------------------------------------------------------------ #
 	ld = list(os.listdir(args.input))
