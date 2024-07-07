@@ -7,9 +7,6 @@ import alive_progress
 import subprocess
 
 
-TARGET_RATIO = 9 / 19.5 # width / height
-
-
 def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-i", "--input",  help="input folder",         required=True)
@@ -18,6 +15,10 @@ def main():
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
+
+	parser.add_argument("-w", "--target-width",  help="aspect ratio width",  required=False, default=9, type=float)
+	parser.add_argument("-h", "--target-height", help="aspect ratio height", required=False, default=19, type=float)
+	
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
 
@@ -25,6 +26,8 @@ def main():
 		os.makedirs(args.output)
 	except FileExistsError:
 		pass
+
+	target_ratio = args.target_width / args.target_height
 
 	# ------------------------------------------------------------------------ #
 	ld = list(os.listdir(args.input))
@@ -88,14 +91,14 @@ def main():
 
 			img_ratio = img.shape[1] / img.shape[0] # width / height
 
-			if img_ratio > TARGET_RATIO:
+			if img_ratio > target_ratio:
 				# wider ratio than target, background width = image width
 				background_width = img.shape[1]
-				background_height = int(background_width / TARGET_RATIO)
+				background_height = int(background_width / target_ratio)
 			else:
 				# taller ratio than target, background height = image height
 				background_height = img.shape[0]
-				background_width = int(background_height * TARGET_RATIO)
+				background_width = int(background_height * target_ratio)
 
 			img_output = np.zeros((background_height, background_width, 3), np.float32)
 
