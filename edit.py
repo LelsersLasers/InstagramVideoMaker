@@ -53,7 +53,6 @@ def main():
 	with alive_progress.alive_bar(len(all_widths)) as bar:
 		for width in keys:
 			count = all_widths[width]
-			print(width, count)
 			next_count = running_count + count
 			if running_count < target_index <= next_count:
 				target_width = width
