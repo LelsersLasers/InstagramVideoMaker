@@ -32,6 +32,7 @@ def main():
 	ld = list(os.listdir(args.folder))
 	ld.sort()
 	l = len(ld)
+	target_index = int(0.75 * l)
 
 	all_widths = {}
 
@@ -47,13 +48,18 @@ def main():
 			bar()
 
 	target_width = 0
-	max_count = 0
-	for width, count in all_widths.items():
-		if count >= max_count:
-			target_width = width
-			max_count = count
+	running_count = 0
+	keys = sorted(list(all_widths.keys()))
+	with alive_progress.alive_bar(len(all_widths)) as bar:
+		for width in keys:
+			count = all_widths[width]
+			print(width, count)
+			next_count = running_count + count
+			if running_count < target_index <= next_count:
+				target_width = width
+			running_count = next_count
 
-	print(target_width)
+			bar()
 
 	font = cv2.FONT_HERSHEY_SIMPLEX
 	font_size = int(0.00125 * target_width)
