@@ -67,8 +67,8 @@ def main():
 	line_type = cv2.LINE_AA
 	font_color = (255, 255, 255)
 
-	x = int(0.04 * target_width)
-	y = lambda i: int(0.07 * target_width + (i + 0.4) * font_size * 30)
+	x = int(0.05 * target_width)
+	y = lambda i: int(0.09 * target_width + (i + 0.4) * font_size * 30)
 
 	all_text = json.load(open(args.text))
 	current_text = {
