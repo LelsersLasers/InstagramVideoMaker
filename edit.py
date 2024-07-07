@@ -32,6 +32,38 @@ def main():
 	ld = list(os.listdir(args.folder))
 	ld.sort()
 	l = len(ld)
+
+	all_widths = {}
+
+	with alive_progress.alive_bar(l) as bar:
+		for filename in ld:
+			img = cv2.imread(os.path.join(args.folder, filename))
+			width = img.shape[1]
+			try:
+				all_widths[width] += 1
+			except KeyError:
+				all_widths[width] = 1
+			
+			bar()
+
+	target_width = 0
+	max_count = 0
+	for width, count in all_widths.items():
+		if count >= max_count:
+			target_width = width
+			max_count = count
+
+	print(target_width)
+
+	font = cv2.FONT_HERSHEY_SIMPLEX
+	font_size = int(0.00125 * target_width)
+	font_thickness = int(0.003 * target_width)
+	line_type = cv2.LINE_AA
+	font_color = (255, 255, 255)
+
+	x = int(0.015 * target_width)
+	y = lambda i: int(0.025 * target_width + (i + 0.4) * font_size * 30)
+
 	with alive_progress.alive_bar(l) as bar:
 		for filename in ld:
 			i = filename.split(".")[0]
@@ -61,22 +93,16 @@ def main():
 
 			img_output[y_offset:y_offset + img.shape[0], x_offset:x_offset + img.shape[1]] = img
 
+			resize_ratio = target_width / background_width
+			img_output = cv2.resize(img_output, (target_width, int(background_height * resize_ratio)))
 
-			font = cv2.FONT_HERSHEY_SIMPLEX
-			font_size = int(0.0005 * background_height)
-			line_type = cv2.LINE_AA
+			cv2.putText(img_output, current_text["date"],    (x, y(0)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["country"], (x, y(1)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["city"],    (x, y(2)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["area"],    (x, y(3)), font, font_size, font_color, font_thickness, line_type)
 
-			x = int(0.01 * background_width)
-			y = lambda i: int(0.02 * background_width + (i + 0.4) * font_size * 30)
-
-			print(font_size, x, y(0))
-
-			cv2.putText(img_output, current_text["date"],    (x, y(0)), font, font_size, (255, 255, 255), 2, line_type)
-			cv2.putText(img_output, current_text["country"], (x, y(1)), font, font_size, (255, 255, 255), 2, line_type)
-			cv2.putText(img_output, current_text["city"],    (x, y(2)), font, font_size, (255, 255, 255), 2, line_type)
-			cv2.putText(img_output, current_text["area"],    (x, y(3)), font, font_size, (255, 255, 255), 2, line_type)
-
-			cv2.imwrite(os.path.join(args.output, filename), img_output)
+			output_filename = filename.split(".")[0] + ".jpg"
+			cv2.imwrite(os.path.join(args.output, output_filename), img_output)
 
 			bar()
 
