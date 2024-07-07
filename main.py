@@ -16,7 +16,7 @@ def main():
 	parser.add_argument("-o", "--output", help="output folder",        required=True)
 	parser.add_argument("-t", "--text",   help="overlay text json",    required=True)
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
-	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=int)
+	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
