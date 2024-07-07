@@ -15,7 +15,7 @@ def main():
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
-	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:14")
+	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:16")
 	
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
@@ -67,8 +67,8 @@ def main():
 	line_type = cv2.LINE_AA
 	font_color = (255, 255, 255)
 
-	x = int(0.015 * target_width)
-	y = lambda i: int(0.025 * target_width + (i + 0.4) * font_size * 30)
+	x = int(0.035 * target_width)
+	y = lambda i: int(0.065 * target_width + (i + 0.4) * font_size * 30)
 
 	all_text = json.load(open(args.text))
 	current_text = {
