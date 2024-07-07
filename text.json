@@ -201,10 +201,17 @@
   "201": {
     "city": "Aix-les-Bains"
   },
-  "202": {
+  "203": {
     "area": "Downtown"
   },
-  "204": {
-    "area": "Downtown"
+  "205": {
+    "area": ""
+  },
+
+  "206": {
+    "date": "7/6/24",
+    "country": "United States",
+    "city": "New York City",
+    "area": "JFK Airport"
   }
 }
