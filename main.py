@@ -15,7 +15,7 @@ def main():
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
-	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:16")
+	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:14")
 	
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
