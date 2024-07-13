@@ -1,5 +1,6 @@
 import argparse
 import os
+import shutil
 import cv2
 import numpy as np
 import json
@@ -21,9 +22,11 @@ def main():
 	# ------------------------------------------------------------------------ #
 
 	try:
-		os.makedirs(args.output)
-	except FileExistsError:
+		shutil.rmtree(args.output)
+	except FileNotFoundError:
 		pass
+	
+	os.makedirs(args.output)
 
 	ratio_parts = args.ratio.split(":")
 	target_ratio = float(ratio_parts[0]) / float(ratio_parts[1])
@@ -58,6 +61,8 @@ def main():
 		if running_count < target_index <= next_count:
 			target_width = width
 		running_count = next_count
+	
+	print(f"Target width: {target_width}")
 	# ------------------------------------------------------------------------ #
 
 	# ------------------------------------------------------------------------ #
@@ -67,8 +72,8 @@ def main():
 	line_type = cv2.LINE_AA
 	font_color = (255, 255, 255)
 
-	x = int(0.10 * target_width)
-	y = lambda i: int(0.18 * target_width + (i + 0.4) * font_size * 30)
+	x = int(0.05 * target_width)
+	y = lambda i: int(0.08 * target_width + (i + 0.4) * font_size * 30)
 
 	all_text = json.load(open(args.text))
 	current_text = {
