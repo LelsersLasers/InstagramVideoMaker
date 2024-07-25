@@ -22,61 +22,402 @@
     "area": "San Diego Airport",
     "comment": "Start of a long day..."
   },
-  "007": {
-    "comment": "Before the chaos..."
-  },
   "008": {
-    "location": "Chicagio, STATE, United States TODO",
-    "area": "TODO",
-    "comment": "Away we go!"
+    "comment": "Before the chaos..."
   },
   "009": {
     "location": "United States",
     "area": "Plane",
-    "comment": "#shortlayoverlife"
+    "comment": "Away we go!"
   },
   "010": {
-    "date": "7/16/24",
-    "location": "Amsterdam, Netherlands",
-    "area": "TODO",
-    "comment": "We have a few extra luggages..."
+    "location": "Chicago, Illinois, United States",
+    "area": "O'Hare Airport",
+    "comment": "#shortlayoverlife"
   },
   "011": {
+    "date": "7/16/24",
     "location": "Amsterdam, Netherlands",
+    "area": "Amsterdam Airport Schiphol",
+    "comment": "We have a few extra luggages..."
+  },
+  "012": {
     "area": "Train",
     "comment": "Not in San Diego anymore"
   },
-  "012": {
-    "location": "Eindhoven, Netherlands",
-    "area": "Eindhoven Central",
-    "comment": "Public transport"
-  },
   "013": {
+    "location": "Eindhoven, Netherlands",
+    "area": "Eindhoven Centraal",
+    "comment": "Public transport!"
+  },
+  "014": {
     "area": "Middle of the road",
     "comment": "Lots of luggages..."
   },
-  "014": {
+  "015": {
     "area": "Holiday Inn Eindhoven",
     "comment": "I melt in the rain"
   },
-  "015": {
-    "area": "Eindhoven Central",
+  "016": {
+    "area": "Eindhoven Centraal",
     "comment": "A couple bikes..."
   },
-  "016": {
+  "017": {
     "area": "Eindhoven",
     "comment": "They are everywhere (and for us)"
   },
-  "017": {
+  "018": {
     "comment": "De-jetlag-ing"
   },
   "026": {
     "date": "7/17/24",
-    "area":"Eindhoven Central",
+    "area":"Eindhoven Centraal",
     "comment": "Lots of luggages..."
   },
-  "026": {
-    "area": 
-    "comment": "Lots of luggages..."
+  "027": {
+    "area": "Robocup (outside area)"
   },
+  "028": {
+    "comment": "Belgian military robots"
+  },
+  "029": {
+    "comment": "Belgian military robots"
+  },
+  "030": {
+    "area": "Robocup",
+    "comment": "RMRC work area"
+  },
+  "031": {
+    "comment": "RMRC competition courses"
+  },
+  "032": {
+    "comment": "Who trusted us with power tools?"
+  },
+  "034": {
+    "comment": "Belgian military robots"
+  },
+  "035": {
+    "comment": "Reconstructing post-transport"
+  },
+  "036": {
+    "comment": "RMRC competition courses"
+  },
+  "038": {
+    "comment": "#imagine"
+  },
+  "039": {
+    "comment": "Moved for the first time!"
+  },
+  "040": {
+    "comment": "Screwing..."
+  },
+  "041": {
+    "comment": "Opening ceremony"
+  },
+  "042": {
+    "comment": "Back to work"
+  },
+  "045": {
+    "area": "Bus",
+    "comment": "Kicked out of the work area"
+  },
+  "046": {
+    "area": "Hotel room 513",
+    "comment": "Back to work (in the hotel now)"
+  },
+  "048": {
+    "comment": "H-O-T-T-O-G-O"
+  },
+  "049": {
+    "area": "WhatsApp: 'All Robotics'",
+    "comment": "#readingcomprehension"
+  },
+  "050": {
+    "date": "7/18/24",
+    "area": "Robocup",
+    "comment": "Gripper working"
+  },
+  "051": {
+    "comment": "12 points on stairs! (more than all of last year...)"
+  },
+  "052": {
+    "comment": "#documentation"
+  },
+  "053": {
+    "comment": "#actionshot"
+  },
+  "054": {
+    "comment": "Someone pour me up a double shot of [Espresso]"
+  },
+  "055": {
+    "comment": "It fell apart"
+  },
+  "056": {
+    "area":"WhatsApp: 'All Robotics'",
+    "comment": "No sleep till [Robocup]"
+  },
+  "057": {
+    "date": "7/19/24",
+    "area": "Robocup",
+    "comment": "Cooking?"
+  },
+  "059": {
+    "comment": "International help required"
+  },
+  "060": {
+    "comment": "Not going well"
+  },
+  "061": {
+    "comment": "What you don't know can't hurt you"
+  },
+  "063": {
+    "area": "WhatsApp: 'RMRC 2024'",
+    "comment": "Jesus took the wheel"
+  },
+  "064": {
+    "area": "Robocup",
+    "comment": "Dr. Eguchi"
+  },
+  "065": {
+    "comment": "Sound proof glass"
+  },
+  "068": {
+    "comment": "Rare photo of Sienna"
+  },
+  "069": {
+    "comment": "MADE FINALS"
+  },
+  "071": {
+    "comment": "Look who I found"
+  },
+  "072": {
+    "area": "Holiday Inn Eindhoven",
+    "comment": "Credit: Amy Yan"
+  },
+  "073": {
+    "date": "7/20/24",
+    "area": "Apple Maps",
+    "comment": "Weekend bus schedule..."
+  },
+  "074": {
+    "area": "Robocup",
+    "comment": "Pre-finals testing"
+  },
+  "075": {
+    "comment": "They declined our gloves"
+  },
+  "076": {
+    "comment": "All of Robocup photo attempt"
+  },
+  "078": {
+    "comment": "Finals briefing"
+  },
+  "079": {
+    "comment": "Drawining a crowd?"
+  },
+  "080": {
+    "comment": "Supporting our international friends"
+  },
+  "081": {
+    "area": "WhatsApp: 'RMRC 2024'",
+    "comment": "Most well liked team"
+  },
+  "082": {
+    "area": "Hotel room 106",
+    "comment": "Peace offering from/being hit on by the Thai team"
+  },
+  "083": {
+    "area": "WhatsApp: 'All Robotics'",
+    "comment": "idk what's happening"
+  },
+  "084": {
+    "area": "Discord: 'RMRC 2024'",
+    "comment": "China team stealing our stuff"
+  },
+  "085": {
+    "area": "Eindhoven",
+    "comment": "No work to do on the robot! (Exploring Eindhoven)"
+  },
+  "097": {
+    "date": "7/21/24",
+    "comment": "Physics?"
+  },
+  "098": {
+    "area": "Robocup",
+    "comment": "Pre-super teams decorating"
+  },
+  "099": {
+    "comment": "Signed wheel"
+  },
+  "100": {
+    "comment": "International decorations"
+  },
+  "101": {
+    "comment": "There must have been a better way?"
+  },
+  "102": {
+    "comment": "International decorations"
+  },
+  "104": {
+    "comment": "International Brawl Stars"
+  },
+  "105": {
+    "comment": "OnStage super teams!"
+  },
+  "106": {
+    "comment": "Super teams run!"
+  },
+  "112": {
+    "comment": "Watching other super teams with international friends"
+  },
+  "114": {
+    "comment": "RMRC celebrations!"
+  },
+  "121": {
+    "comment": "Who has the power tool?"
+  },
+  "122": {
+    "comment": "RMRC celebrations!"
+  },
+  "123": {
+    "comment": "Price of a sumbrero is a Mexican date"
+  },
+  "124": {
+    "comment": "Victor x Thai team"
+  },
+  "125": {
+    "comment": "Closing ceremony"
+  },
+  "126": {
+    "comment": "Bored era"
+  },
+  "127": {
+    "comment": "#paperexists"
+  },
+  "128": {
+    "area": "Hotel room 513",
+    "comment": "Team gossip session"
+  },
+  "129": {
+    "date": "7/22/24",
+    "area": "Eindhoven Centraal",
+    "comment": "Credit card declined?"
+  },
+  "130": {
+    "date": "7/22/24",
+    "area": "Train",
+    "comment": "Not in San Diego anymore"
+  },
+  "131": {
+    "location": "Amsterdam, Netherlands",
+    "area": "Amsterdam Centraal",
+    "comment": "Not in San Diego anymore"
+  },
+  "132": {
+    "area": "Amsterdam",
+    "comment": ""
+  },
+  "144": {
+    "comment": "Canal Cruise"
+  },
+  "154": {
+    "comment": "Underground bike parking lot"
+  },
+  "155": {
+    "comment": ""
+  },
+  "156": {
+    "area": "This is Holland",
+    "comment": "Cornell class registration"
+  },
+  "157": {
+    "comment": "Didn't get Math 1920"
+  },
+  "158": {
+    "comment": "Audrey writing Sienna's email"
+  },
+  "159": {
+    "area": "Amsterdam",
+    "comment": "He is Adam"
+  },
+  "160": {
+    "comment": "Some random guy crashed our photo"
+  },
+  "161": {
+    "comment": ""
+  },
+  "162": {
+    "comment": "Guess who?"
+  },
+  "163": {
+    "comment": "Dinner in Amsterdam"
+  },
+  "164": {
+    "comment": ""
+  },
+  "165": {
+    "date": "7/23/24",
+    "location": "Eindhoven, Netherlands",
+    "area":"Holiday Inn Eindhoven",
+    "comment": "OnStage super team first place!"
+  },
+  "166": {
+    "area":"Train",
+    "comment": "Windmills are real"
+  },
+  "167": {
+    "location": "Amsterdam, Netherlands",
+    "area":"Amsterdam",
+    "comment": ""
+  },
+  "168": {
+    "comment": "Scylla on a boat is wild"
+  },
+  "174": {
+    "comment": "Food and walking tour"
+  },
+  "186": {
+    "area":"WhatsApp: 'All Robotics'",
+  },
+  "187": {
+    "area":"Amsterdam",
+    "comment": "#catperson"
+  },
+  "188": {
+    "comment": ""
+  },
+  "194": {
+    "comment": "Glow in the dark mini golf"
+  },
+  "196": {
+    "comment": "Phylishopical debate"
+  },
+  "197": {
+    "date": "7/24/24",
+    "area": "Amsterdam Airport Schiphol",
+    "comment": "Start of a long trip back"
+  },
+  "198": {
+    "comment": "McDonald's without Charlie"
+  },
+  "199": {
+    "comment": "Never seen so many different airlines"
+  },
+  "200": {
+    "comment": "Rare photo of Sienna"
+  },
+  "201": {
+    "area": "WhatsApp: 'RMRC students 2024'",
+    "comment": "11 hours is a long flight"
+  },
+  "202": {
+    "location": "San Francisco, California, United States",
+    "area": "WhatsApp: 'All Robotics'",
+    "comment": "#shortlayoverlife"
+  },
+  "203": {
+    "location": "San Diego, California, United States",
+    "area": "Plane",
+    "comment": "Home sweet home"
+  }
 }
