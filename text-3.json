@@ -1,0 +1,82 @@
+{
+  "001": {
+    "date": "6/21/24",
+    "location": "La Jolla, California, United States",
+    "area": "Bishop's Robotics Lab",
+    "comment": "Very organized..."
+  },
+  "002": {
+    "comment": "Very complete..."
+  },
+  "004": {
+    "date": "7/8/24",
+    "comment": "Big glowup"
+  },
+  "005": {
+    "date": "7/14/24",
+    "comment": "Very focused..."
+  },
+  "006": {
+    "date": "7/15/24",
+    "location": "San Diego, California, United States",
+    "area": "San Diego Airport",
+    "comment": "Start of a long day..."
+  },
+  "007": {
+    "comment": "Before the chaos..."
+  },
+  "008": {
+    "location": "Chicagio, STATE, United States TODO",
+    "area": "TODO",
+    "comment": "Away we go!"
+  },
+  "009": {
+    "location": "United States",
+    "area": "Plane",
+    "comment": "#shortlayoverlife"
+  },
+  "010": {
+    "date": "7/16/24",
+    "location": "Amsterdam, Netherlands",
+    "area": "TODO",
+    "comment": "We have a few extra luggages..."
+  },
+  "011": {
+    "location": "Amsterdam, Netherlands",
+    "area": "Train",
+    "comment": "Not in San Diego anymore"
+  },
+  "012": {
+    "location": "Eindhoven, Netherlands",
+    "area": "Eindhoven Central",
+    "comment": "Public transport"
+  },
+  "013": {
+    "area": "Middle of the road",
+    "comment": "Lots of luggages..."
+  },
+  "014": {
+    "area": "Holiday Inn Eindhoven",
+    "comment": "I melt in the rain"
+  },
+  "015": {
+    "area": "Eindhoven Central",
+    "comment": "A couple bikes..."
+  },
+  "016": {
+    "area": "Eindhoven",
+    "comment": "They are everywhere (and for us)"
+  },
+  "017": {
+    "comment": "De-jetlag-ing"
+  },
+  "026": {
+    "date": "7/17/24",
+    "area":"Eindhoven Central",
+    "comment": "Lots of luggages..."
+  },
+  "026": {
+    "area": 
+    "comment": "Lots of luggages..."
+  },
+}
