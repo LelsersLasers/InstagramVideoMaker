@@ -12,7 +12,7 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-i", "--input",  help="input folder",         required=True)
 	parser.add_argument("-o", "--output", help="output folder",        required=True)
-	# parser.add_argument("-t", "--text",   help="overlay text json",    required=True)
+	parser.add_argument("-t", "--text",   help="overlay text json",    required=True)
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
@@ -75,21 +75,21 @@ def main():
 	x = int(0.05 * target_width)
 	y = lambda i: int(0.08 * target_width + (i + 0.4) * font_size * 30)
 
-	# all_text = json.load(open(args.text))
-	# current_text = {
-	# 	"date": "",
-	# 	"country": "",
-	# 	"city": "",
-	# 	"area": ""
-	# }
+	all_text = json.load(open(args.text))
+	current_text = {
+		"date": "",
+		"location": "",
+		"area": "",
+		"comment": ""
+	}
 
 	with alive_progress.alive_bar(l) as bar:
 		for filename in ld:
 			i = filename.split(".")[0]
-			# try:
-			# 	current_text.update(all_text[i])
-			# except KeyError:
-			# 	pass
+			try:
+				current_text.update(all_text[i])
+			except KeyError:
+				pass
 
 			img = cv2.imread(os.path.join(args.input, filename))
 
@@ -115,10 +115,10 @@ def main():
 			resize_ratio = target_width / background_width
 			img_output = cv2.resize(img_output, (target_width, int(background_height * resize_ratio)))
 
-			# cv2.putText(img_output, current_text["date"],    (x, y(0)), font, font_size, font_color, font_thickness, line_type)
-			# cv2.putText(img_output, current_text["country"], (x, y(1)), font, font_size, font_color, font_thickness, line_type)
-			# cv2.putText(img_output, current_text["city"],    (x, y(2)), font, font_size, font_color, font_thickness, line_type)
-			# cv2.putText(img_output, current_text["area"],    (x, y(3)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["date"],     (x, y(0)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["location"], (x, y(1)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["area"],     (x, y(2)), font, font_size, font_color, font_thickness, line_type)
+			cv2.putText(img_output, current_text["comment"],  (x, y(3)), font, font_size, font_color, font_thickness, line_type)
 
 			output_filename = filename.split(".")[0] + ".jpg"
 			cv2.imwrite(os.path.join(args.output, output_filename), img_output)
