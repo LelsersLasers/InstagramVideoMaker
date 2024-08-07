@@ -6,7 +6,7 @@ import alive_progress
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input",     help="input folder",            required=True)
-    parser.add_argument("-e", "--extension", help="extension to convert to", required=False, default="jpeg")
+    parser.add_argument("-e", "--extension", help="extension to convert to", required=False, default="jpg")
     
     args = parser.parse_args()
 
