@@ -3,7 +3,7 @@ import os
 import shutil
 import cv2
 import numpy as np
-import json
+# import json
 import alive_progress
 import subprocess
 
@@ -35,20 +35,20 @@ def main():
 	ld = list(os.listdir(args.input))
 	ld.sort()
 	l = len(ld)
-	target_index = int(0.75 * l)
+	# target_index = int(0.75 * l)
 
-	all_widths = {}
+	# all_widths = {}
 
-	with alive_progress.alive_bar(l) as bar:
-		for filename in ld:
-			img = cv2.imread(os.path.join(args.input, filename))
-			width = img.shape[1]
-			try:
-				all_widths[width] += 1
-			except KeyError:
-				all_widths[width] = 1
+	# with alive_progress.alive_bar(l) as bar:
+	# 	for filename in ld:
+	# 		img = cv2.imread(os.path.join(args.input, filename))
+	# 		width = img.shape[1]
+	# 		try:
+	# 			all_widths[width] += 1
+	# 		except KeyError:
+	# 			all_widths[width] = 1
 			
-			bar()
+	# 		bar()
 	# ------------------------------------------------------------------------ #
 
 	# ------------------------------------------------------------------------ #
@@ -85,7 +85,7 @@ def main():
 
 	with alive_progress.alive_bar(l) as bar:
 		for filename in ld:
-			i = filename.split(".")[0]
+			# i = filename.split(".")[0]
 			# try:
 			# 	current_text.update(all_text[i])
 			# except KeyError:
