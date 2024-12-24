@@ -93,6 +93,11 @@ def main():
 
 			img = cv2.imread(os.path.join(args.input, filename))
 
+			# i = int(os.path.basename(filename).split(".")[0])
+			# if i >= 58:
+			# 	# 550:975 -> 550:895
+			# 	img = img[80:975, :]
+
 			img_ratio = img.shape[1] / img.shape[0] # width / height
 
 			if img_ratio > target_ratio:
