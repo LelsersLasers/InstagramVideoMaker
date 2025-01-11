@@ -6,6 +6,7 @@ import numpy as np
 # import json
 import alive_progress
 import subprocess
+import random
 
 
 def main():
@@ -83,6 +84,9 @@ def main():
 	# 	"comment": ""
 	# }
 
+	i = 0
+	random.shuffle(ld)
+
 	with alive_progress.alive_bar(l) as bar:
 		for filename in ld:
 			# i = filename.split(".")[0]
@@ -91,52 +95,71 @@ def main():
 			# except KeyError:
 			# 	pass
 
+
 			img = cv2.imread(os.path.join(args.input, filename))
 
+
 			# i = int(os.path.basename(filename).split(".")[0])
-			# if i >= 58:
-			# 	# 550:975 -> 550:895
-			# 	img = img[80:975, :]
+			# if i <= 47:
+			# 	img = img[80:(822 + 80), 15:(521 + 15)]
 
-			img_ratio = img.shape[1] / img.shape[0] # width / height
 
-			if img_ratio > target_ratio:
-				# wider ratio than target, background width = image width
-				background_width = img.shape[1]
-				background_height = int(background_width / target_ratio)
-			else:
-				# taller ratio than target, background height = image height
-				background_height = img.shape[0]
-				background_width = int(background_height * target_ratio)
+			# img_ratio = img.shape[1] / img.shape[0] # width / height
 
-			img_output = np.zeros((background_height, background_width, 3), np.float32)
 
-			# center the image
-			x_offset = (background_width - img.shape[1]) // 2
-			y_offset = (background_height - img.shape[0]) // 2
+			# if img_ratio > target_ratio:
+			# 	# wider ratio than target, background width = image width
+			# 	background_width = img.shape[1]
+			# 	background_height = int(background_width / target_ratio)
+			# else:
+			# 	# taller ratio than target, background height = image height
+			# 	background_height = img.shape[0]
+			# 	background_width = int(background_height * target_ratio)
 
-			img_output[y_offset:y_offset + img.shape[0], x_offset:x_offset + img.shape[1]] = img
+			# img_output = np.zeros((background_height, background_width, 3), np.float32)
+			# img_output += 255
+
+			# # center the image
+			# x_offset = (background_width - img.shape[1]) // 2
+			# y_offset = (background_height - img.shape[0]) // 2
+
+			# img_output[y_offset:y_offset + img.shape[0], x_offset:x_offset + img.shape[1]] = img
+
 
 			# resize_ratio = target_width / background_width
 			# img_output = cv2.resize(img_output, (target_width, int(background_height * resize_ratio)))
+
 
 			# cv2.putText(img_output, current_text["date"],     (x, y(0)), font, font_size, font_color, font_thickness, line_type)
 			# cv2.putText(img_output, current_text["location"], (x, y(1)), font, font_size, font_color, font_thickness, line_type)
 			# cv2.putText(img_output, current_text["area"],     (x, y(2)), font, font_size, font_color, font_thickness, line_type)
 			# cv2.putText(img_output, current_text["comment"],  (x, y(3)), font, font_size, font_color, font_thickness, line_type)
 
-			output_filename = filename.split(".")[0] + ".jpg"
+
+			img_output = img
+
+			# output_filename = filename.split(".")[0] + ".jpg"
+			output_filename = f"{i:03}.jpg"
 			cv2.imwrite(os.path.join(args.output, output_filename), img_output)
 
+			i += 1
 			bar()
 	# ------------------------------------------------------------------------ #
 
 	# ------------------------------------------------------------------------ #
 	if args.video:
 		if args.output.endswith("/"): args.output = args.output[:-1]
-		cmd_str = f"ffmpeg -framerate {args.fps} -i {args.output}/%03d.jpg {args.name}"
-		cmd_lst = cmd_str.split(" ")
-		subprocess.run(cmd_lst)
+		# cmd_str = f"ffmpeg -framerate {args.fps} -i {args.output}/%03d.jpg {args.name}"
+		# cmd_lst = cmd_str.split(" ")
+		# subprocess.run(cmd_lst)
+		cmd = [
+			"ffmpeg",
+			"-framerate", str(args.fps),
+			"-i", f"{args.output}/%03d.jpg",
+			"-vf", "scale=iw:ih",
+			args.name
+		]
+		subprocess.run(cmd)
 	# ------------------------------------------------------------------------ #
 
 
