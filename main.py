@@ -117,7 +117,7 @@ def main():
 			# 	background_width = int(background_height * target_ratio)
 
 			# img_output = np.zeros((background_height, background_width, 3), np.float32)
-			# img_output += 255
+			# img_output += 255 # white background
 
 			# # center the image
 			# x_offset = (background_width - img.shape[1]) // 2
