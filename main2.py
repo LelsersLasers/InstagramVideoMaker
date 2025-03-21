@@ -141,9 +141,18 @@ def main():
     wood = pygame.image.load("wood.png")
     wood = pygame.transform.scale(wood, (FRAME_W, FRAME_H))
 
-    running_frame = pygame.surface.Surface((FRAME_W, FRAME_H), pygame.SRCALPHA)
-    running_frame.fill((0, 0, 0, 0))
-    running_frame.blit(wood, (0, 0))
+    # running_frame = pygame.surface.Surface((FRAME_W, FRAME_H), pygame.SRCALPHA)
+    # running_frame.fill((0, 0, 0, 0))
+    # running_frame.blit(wood, (0, 0))
+
+    def make_bg():
+        running_frame = pygame.surface.Surface((FRAME_W, FRAME_H), pygame.SRCALPHA)
+        running_frame.fill((0, 0, 0, 0))
+        running_frame.blit(wood, (0, 0))
+        return running_frame
+
+
+    last_five = []
 
      
 
@@ -191,19 +200,17 @@ def main():
             x_pos = FRAME_W // 2 + x_offset
             y_pos = FRAME_H // 2 + y_offset
 
+            bg = make_bg()
 
-            blitRotate(running_frame, out, (x_pos, y_pos), (IMG_W // 2, IMG_H // 2), angle)
+            last_five.append(bg)
+            # blitRotate(bg, out, (x_pos, y_pos), (IMG_W // 2, IMG_H // 2), angle)
+            for i in range(len(last_five)):
+                blitRotate(last_five[i], out, (x_pos, y_pos), (IMG_W // 2, IMG_H // 2), angle)
 
-
-            rot = pygame.transform.rotate(out, angle)
-            rot_rect = rot.get_rect(center = (x_pos, y_pos))
-
-            running_frame.blit(rot, rot_rect)
-
+            last_five = last_five[-5:]
 
             output_filename = filename.split(".")[0] + ".jpg"
-            pygame.image.save(running_frame, os.path.join(args.output, output_filename))
-
+            pygame.image.save(last_five[0], os.path.join(args.output, output_filename))
 
             i += 1
             bar()
