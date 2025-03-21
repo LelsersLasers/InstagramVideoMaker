@@ -221,12 +221,15 @@ def main():
         if args.output.endswith("/"): args.output = args.output[:-1]
         cmd = [
             "ffmpeg",
+            "-hide_banner",
+            "-loglevel", "error",
             "-framerate", str(args.fps),
             "-i", f"{args.output}/%03d.jpg",
             "-vf", "scale=iw:ih",
             "-y" if args.yes else "",
             args.name
         ]
+        print(f"Running command: {' '.join(cmd)}")
         subprocess.run(cmd)
     # ------------------------------------------------------------------------ #
 
