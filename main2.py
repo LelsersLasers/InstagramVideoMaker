@@ -41,25 +41,7 @@ IMG_H = int(IMG_H)
 MAX_W = int(MAX_W)
 MAX_H = int(MAX_H)
 
-# pygame.init()
-# window = pygame.display.set_mode((FRAME_W, FRAME_H))
-# clock = pygame.time.Clock()
-
-# def blitRotateCenter(surf, image, topleft, angle):
-
-#     rotated_image = pygame.transform.rotate(image, angle)
-#     new_rect = rotated_image.get_rect(center = image.get_rect(topleft = topleft).center)
-
-#     surf.blit(rotated_image, new_rect)
-
 def blitRotate(surf, image, pos, originPos, angle):
-    # img_a = image.convert_alpha()
-    # img_a = pygame.surface.Surface(image.get_size(), pygame.SRCALPHA)
-    # img_a.fill((0, 0, 0, 0))
-    # img_a.blit(image, (0, 0))
-    # img_a.set_at((0, 0), (0, 0, 0, 0))
-    # img_a.set_colorkey((0, 0, 0))
-
     # Offset from pivot to center
     image_rect = image.get_rect(topleft = (pos[0] - originPos[0], pos[1]-originPos[1]))
     offset_center_to_pivot = pygame.math.Vector2(pos) - image_rect.center
@@ -74,30 +56,8 @@ def blitRotate(surf, image, pos, originPos, angle):
     rotated_image = pygame.transform.rotate(image, angle)
     rotated_image_rect = rotated_image.get_rect(center = rotated_image_center)
 
-    # rotate and blit the image
+    # Rotate and blit the image
     surf.blit(rotated_image, rotated_image_rect)
-
-# def blitRotate(surf, image, pos, originPos, angle):
-#     # Create a surface with an alpha channel for the rotated image
-#     # Calculate the new size of the rotated image to avoid clipping
-#     w, h = image.get_size()
-#     # The diagonal length is the maximum possible size after rotation
-#     max_size = int((w**2 + h**2)**0.5)
-#     rotated_surface = pygame.Surface((max_size, max_size), pygame.SRCALPHA)
-#     rotated_surface.fill((0, 0, 0, 0))  # Fill with transparent color
-
-#     # Blit the original image onto the center of the rotated surface
-#     rotated_surface.blit(image, (max_size // 2 - w // 2, max_size // 2 - h // 2))
-
-#     # Rotate the surface
-#     rotated_image = pygame.transform.rotate(rotated_surface, angle)
-
-#     # Calculate the new rect for the rotated image
-#     rotated_rect = rotated_image.get_rect(center=pos)
-
-#     # Blit the rotated image onto the target surface
-#     surf.blit(rotated_image, rotated_rect.topleft)
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -230,11 +190,7 @@ def main():
             x_pos = FRAME_W // 2 + x_offset
             y_pos = FRAME_H // 2 + y_offset
 
-            # t = pygame.surface.Surface((MAX_W, MAX_H))
-            # t.blit(out, (0, 0))
 
-            # blitRotate(running_frame, out, (x_pos, y_pos), (IMG_W // 2, IMG_H // 2), angle)
-            # blitRotateAroundPoint(running_frame, out, (x_pos - IMG_W // 2, y_pos - IMG_H // 2), (IMG_W // 2, IMG_H // 2), angle)
             blitRotate(running_frame, out, (x_pos, y_pos), (IMG_W // 2, IMG_H // 2), angle)
 
 
@@ -247,8 +203,6 @@ def main():
             output_filename = filename.split(".")[0] + ".jpg"
             pygame.image.save(running_frame, os.path.join(args.output, output_filename))
 
-            # output_filename = f"{i:03}.jpg"
-            # cv2.imwrite(os.path.join(args.output, output_filename), running_frame)
 
             i += 1
             bar()
@@ -257,9 +211,6 @@ def main():
     # ------------------------------------------------------------------------ #
     if args.video:
         if args.output.endswith("/"): args.output = args.output[:-1]
-        # cmd_str = f"ffmpeg -framerate {args.fps} -i {args.output}/%03d.jpg {args.name}"
-        # cmd_lst = cmd_str.split(" ")
-        # subprocess.run(cmd_lst)
         cmd = [
             "ffmpeg",
             "-framerate", str(args.fps),
