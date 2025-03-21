@@ -226,6 +226,10 @@ def main():
             "-framerate", str(args.fps),
             "-i", f"{args.output}/%03d.jpg",
             "-vf", "scale=iw:ih",
+            # "-crf", "0",
+            # "-preset", "veryslow",
+            "-c:v", "mjpeg",
+            "-q:v", "0",
             "-y" if args.yes else "",
             args.name
         ]
