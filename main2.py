@@ -68,6 +68,7 @@ def main():
     parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
     parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
     # parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:16")
+    parser.add_argument("-y", "--yes",    help="overwrite output",     required=False, action="store_true")
     
     args = parser.parse_args()
     # ------------------------------------------------------------------------ #
@@ -216,6 +217,7 @@ def main():
             "-framerate", str(args.fps),
             "-i", f"{args.output}/%03d.jpg",
             "-vf", "scale=iw:ih",
+            "-y" if args.yes else "",
             args.name
         ]
         subprocess.run(cmd)
