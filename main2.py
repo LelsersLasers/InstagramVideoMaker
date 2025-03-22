@@ -138,12 +138,12 @@ def main():
         cmd = [
             "ffmpeg",
             "-hide_banner",
-            "-loglevel", "error",
             "-framerate", str(args.fps),
             "-i", f"{args.output}/%03d.png",
             "-vf", "scale=iw:ih",
-            "-c:v", "mjpeg",
-            "-q:v", "0",
+            # "-c:v", "libx264",
+            # "-crf", "0",
+            # "-preset", "veryslow",
             "-y" if args.yes else "",
             args.name
         ]
