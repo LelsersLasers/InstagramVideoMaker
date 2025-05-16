@@ -17,8 +17,9 @@ def main():
 	parser.add_argument("-v", "--video",  help="save output as video", required=False, action="store_true")
 	parser.add_argument("-f", "--fps",    help="video fps",            required=False, default=8, type=float)
 	parser.add_argument("-n", "--name",   help="video filename",       required=False, default="output.mp4")
-	parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:16")
-	
+	# parser.add_argument("-r", "--ratio",  help="aspect ratio w:h",     required=False, default="9:16")
+	parser.add_argument("-y", "--yes",    help="overwrite output",     required=False, action="store_true")
+
 	args = parser.parse_args()
 	# ------------------------------------------------------------------------ #
 
@@ -29,8 +30,8 @@ def main():
 	
 	os.makedirs(args.output)
 
-	ratio_parts = args.ratio.split(":")
-	target_ratio = float(ratio_parts[0]) / float(ratio_parts[1])
+	# ratio_parts = args.ratio.split(":")
+	# target_ratio = float(ratio_parts[0]) / float(ratio_parts[1])
 
 	# ------------------------------------------------------------------------ #
 	ld = list(os.listdir(args.input))
@@ -99,31 +100,32 @@ def main():
 			img = cv2.imread(os.path.join(args.input, filename))
 
 
-			i = int(os.path.basename(filename).split(".")[0])
-			# if i <= 47:
-			img = img[80:(822 + 80), 15:(521 + 15)]
+			# i = int(os.path.basename(filename).split(".")[0])
+
+			# skip the top 84, bottom 84, left 2, and right 1 pixels
+			img_output = img[84:-84, 2:-1, :]
 
 
-			img_ratio = img.shape[1] / img.shape[0] # width / height
+			# img_ratio = img.shape[1] / img.shape[0] # width / height
 
 
-			if img_ratio > target_ratio:
-				# wider ratio than target, background width = image width
-				background_width = img.shape[1]
-				background_height = int(background_width / target_ratio)
-			else:
-				# taller ratio than target, background height = image height
-				background_height = img.shape[0]
-				background_width = int(background_height * target_ratio)
+			# if img_ratio > target_ratio:
+			# 	# wider ratio than target, background width = image width
+			# 	background_width = img.shape[1]
+			# 	background_height = int(background_width / target_ratio)
+			# else:
+			# 	# taller ratio than target, background height = image height
+			# 	background_height = img.shape[0]
+			# 	background_width = int(background_height * target_ratio)
 
-			img_output = np.zeros((background_height, background_width, 3), np.float32)
-			img_output += 255 # white background
+			# img_output = np.zeros((background_height, background_width, 3), np.float32)
+			# img_output += 255 # white background
 
-			# center the image
-			x_offset = (background_width - img.shape[1]) // 2
-			y_offset = (background_height - img.shape[0]) // 2
+			# # center the image
+			# x_offset = (background_width - img.shape[1]) // 2
+			# y_offset = (background_height - img.shape[0]) // 2
 
-			img_output[y_offset:y_offset + img.shape[0], x_offset:x_offset + img.shape[1]] = img
+			# img_output[y_offset:y_offset + img.shape[0], x_offset:x_offset + img.shape[1]] = img
 
 
 			# resize_ratio = target_width / background_width
@@ -138,11 +140,11 @@ def main():
 
 			# img_output = img
 
-			output_filename = filename.split(".")[0] + ".jpg"
+			output_filename = filename.split(".")[0] + ".png"
 			# output_filename = f"{i:03}.jpg"
 			cv2.imwrite(os.path.join(args.output, output_filename), img_output)
 
-			i += 1
+			# i += 1
 			bar()
 	# ------------------------------------------------------------------------ #
 
@@ -153,12 +155,17 @@ def main():
 		# cmd_lst = cmd_str.split(" ")
 		# subprocess.run(cmd_lst)
 		cmd = [
-			"ffmpeg",
-			"-framerate", str(args.fps),
-			"-i", f"{args.output}/%03d.jpg",
-			"-vf", "scale=iw:ih",
-			args.name
-		]
+            "ffmpeg",
+            "-hide_banner",
+            "-framerate", str(args.fps),
+            "-i", f"{args.output}/%03d.png",
+            "-vf", "scale=iw:ih",
+            # "-c:v", "libx264",
+            # "-crf", "0",
+            # "-preset", "veryslow",
+            "-y" if args.yes else "",
+            args.name
+        ]
 		subprocess.run(cmd)
 	# ------------------------------------------------------------------------ #
 
