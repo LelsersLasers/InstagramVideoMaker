@@ -208,9 +208,9 @@ def main():
             "-framerate", str(args.fps),
             "-i", f"{args.output}/%03d.png",
             "-vf", "scale=iw:ih",
-            # "-c:v", "libx264",
-            # "-crf", "0",
-            # "-preset", "veryslow",
+            "-c:v", "libx264",
+            "-crf", "0",
+            "-preset", "veryslow",
         ]
         if args.yes:
             cmd += ["-y"]
