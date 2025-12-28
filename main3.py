@@ -211,9 +211,10 @@ def main():
             # "-c:v", "libx264",
             # "-crf", "0",
             # "-preset", "veryslow",
-            "-y" if args.yes else "",
-            args.name
         ]
+        if args.yes:
+            cmd += ["-y"]
+        cmd += [args.name]
         print("Running command:", " ".join(cmd))
         subprocess.run(cmd)
     # ------------------------------------------------------------------------ #
