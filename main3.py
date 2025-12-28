@@ -211,6 +211,7 @@ def main():
             "-y" if args.yes else "",
             args.name
         ]
+        print("Running command:", " ".join(cmd))
         subprocess.run(cmd)
     # ------------------------------------------------------------------------ #
 
