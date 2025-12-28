@@ -154,7 +154,10 @@ def main():
 
         # output_depth_wb[output_depth_wb < 0] = 0.0
 
-        show_scaled = (output_depth_wb / np.max(output_depth_wb) * 255).astype(np.uint8)
+        show_max = np.max(output_depth_wb)
+        if show_max <= 0:
+            show_max = 1.0
+        show_scaled = (output_depth_wb / show_max * 255).astype(np.uint8)
         show_scaled = cv2.resize(show_scaled, (OUTPUT_W // 2, OUTPUT_H // 2))
         cv2.imshow("depth", show_scaled)
 
